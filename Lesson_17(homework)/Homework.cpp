@@ -33,18 +33,43 @@ void Reading_File(multimap<string, string>& dictionary)
 
 void Show_Dictionary(multimap<string, string>const& dictionary)
 {
-	for (auto& element : dictionary)
+	for (auto& pair : dictionary)
 	{
-		cout << "First word: " << element.first << endl;
-		cout << "Second word: " << element.second << endl;
+		cout << "First word: " << pair.first << endl;
+		cout << "Second word: " << pair.second << endl;
 	}
 }
+
+
+void Show_Popular_Pair(multimap<string, string>const& dictionary)
+{
+	auto it = dictionary.begin();
+	int counter = dictionary.count(it->first);
+	string word_1 = it->first;
+	string word_2 = it->second;
+	for (auto& pair : dictionary)
+	{
+		if (counter < dictionary.count(pair.first))
+		{
+			counter = dictionary.count(pair.first);
+			word_1 = pair.first;
+			word_2 = pair.second;
+		}
+	}
+
+	cout <<"Popular Pair: " << word_1 << ' ' << word_2;
+}
+
 
 int main() {
 
 	multimap<string, string> dictionary;
 	Reading_File(dictionary);
+	dictionary.insert({ "cat", "katt" });
+	dictionary.insert({ "dog", "hund" });
+	dictionary.insert({ "dog", "hund" });
 	Show_Dictionary(dictionary);
-
+	Show_Popular_Pair(dictionary);
+	
 	return 0;
 }
