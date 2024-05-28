@@ -1,3 +1,12 @@
-dog hund
 cat katt
+cat katt
+cat katt
+cat katt
+dog hund
+dog hund
+dog hund
+dog hund
+dog hund
+dog hund
+dog hund
 owl ugle
