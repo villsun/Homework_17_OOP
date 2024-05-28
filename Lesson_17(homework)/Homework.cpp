@@ -31,11 +31,20 @@ void Reading_File(multimap<string, string>& dictionary)
 	inputFile.close();
 }
 
+void Show_Dictionary(multimap<string, string>const& dictionary)
+{
+	for (auto& element : dictionary)
+	{
+		cout << "First word: " << element.first << endl;
+		cout << "Second word: " << element.second << endl;
+	}
+}
 
 int main() {
 
 	multimap<string, string> dictionary;
 	Reading_File(dictionary);
-	
+	Show_Dictionary(dictionary);
+
 	return 0;
 }
